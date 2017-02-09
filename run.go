@@ -41,6 +41,8 @@ var (
 	excludedPaths strFlags
 	// Pass through to -tags arg of "go build"
 	buildTags string
+	// Other build ldflags
+	buildLdflags string
 	// Application path
 	currpath string
 	// Application name
@@ -62,6 +64,7 @@ func init() {
 	cmdRun.Flag.Var(&excludedPaths, "e", "List of paths to exclude.")
 	cmdRun.Flag.BoolVar(&vendorWatch, "vendor", false, "Enable watch vendor folder.")
 	cmdRun.Flag.StringVar(&buildTags, "tags", "", "Set the build tags. See: https://golang.org/pkg/go/build/")
+	cmdRun.Flag.StringVar(&buildLdflags, "ldflags", "", "Set the build ldflags. ")
 	cmdRun.Flag.StringVar(&runmode, "runmode", "", "Set the Beego run mode.")
 	exit = make(chan bool)
 }

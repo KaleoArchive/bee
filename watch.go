@@ -187,6 +187,9 @@ func AutoBuild(files []string, isgenerate bool) {
 		if buildTags != "" {
 			args = append(args, "-tags", buildTags)
 		}
+		if buildLdflags != "" {
+			args = append(args, "-ldflags", buildLdflags)
+		}
 		args = append(args, files...)
 
 		bcmd := exec.Command(cmdName, args...)
